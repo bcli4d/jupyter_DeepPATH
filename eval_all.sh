@@ -2,7 +2,7 @@
 
 set -x
 
-
+'''
 export CHECKPOINT_PATH=/mnt/disks/deeppath-data/intermediate_checkpoints
 CHECKPOINT_PATH=/mnt/disks/deeppath-data/intermediate_checkpoints
 export OUTPUT_DIR=/mnt/disks/deeppath-data/evaluations
@@ -24,9 +24,9 @@ export DATA_DIR=$3
 export LABEL_FILE=$4
 export NC_IMAGENET_EVAL=$5
 export BOOTSTRAP=$6
-#export NbClasses=$7
+declare -i count=$7
+export NbClasses=$8
 #module load python/gpu/3.6.5
-'''
 
 # create temporary directory for checkpoints
 mkdir  -p $OUTPUT_DIR/tmp_checkpoints
@@ -34,9 +34,9 @@ export CUR_CHECKPOINT=$OUTPUT_DIR/tmp_checkpoints
 
 
 # check if next checkpoint available
-declare -i count=10000
+#declare -i count=10000
 declare -i step=5000
-declare -i NbClasses=3
+#declare -i NbClasses=3
 
 while true; do
     echo $count
@@ -55,7 +55,8 @@ while true; do
 
 	    # Test
 	    python $NC_IMAGENET_EVAL --checkpoint_dir=$CUR_CHECKPOINT --eval_dir=$OUTPUT_DIR --data_dir=$DATA_DIR \
-		   --batch_size 80  --run_once --ImageSet_basename='valid_' --ClassNumber $NbClasses --mode='0_softmax'  --TVmode='test' > /tmp/log/nc_imagenet_eval.log 2>&1
+		   --batch_size 80  --run_once --ImageSet_basename='valid_' --ClassNumber $NbClasses --mode='0_softmax'  \
+		   --TVmode='test' > /tmp/log/nc_imagenet_eval.log 2>&1
 	    # wait
 
 	    mv $OUTPUT_DIR/out* $TEST_OUTPUT/.
