@@ -1,6 +1,6 @@
-sudo apt-get install -y virtualenv
-virtualenv dp
-source dp/bin/activate
+sudo apt-get install -y git virtualenv
+virtualenv $HOME/dp
+source $HOME/dp/bin/activate
 sudo apt-get install -y libopenslide0
 pip install jupyter
 pip install jupyter_tensorboard
