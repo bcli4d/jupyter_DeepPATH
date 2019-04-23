@@ -1,4 +1,4 @@
 #!/bin/bash
 cd
 source dp/bin/activate
-jupyter notebook
+jupyter notebook --no-browser

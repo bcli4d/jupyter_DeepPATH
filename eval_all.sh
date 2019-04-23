@@ -1,6 +1,5 @@
 #!/bin/bash
 
-set -x
 
 '''
 export CHECKPOINT_PATH=/mnt/disks/deeppath-data/intermediate_checkpoints
@@ -18,6 +17,8 @@ BOOTSTRAP=/home/bcliffor/DeepPATH/DeepPATH_code/s03_postprocessing/v0h_ROC_Multi
 #export NbClasses=3
 #NbClasses=3
 '''
+set -x
+
 export CHECKPOINT_PATH=$1
 export OUTPUT_DIR=$2
 export DATA_DIR=$3

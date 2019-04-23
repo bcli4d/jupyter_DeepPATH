@@ -6,6 +6,6 @@ then execute deeppath_config.sh, and start jupyter:
 
  `$ git clone https://github.com/bcli4d/jupyter_DeepPATH.git`
 
- `$ jupyter_DeepPATH/deeppath_config.sh`
+ `$ ./jupyter_DeepPATH/deeppath_config.sh`
 
- `$ jupyter_DeepPATH/start_jupyter.sh`
+ `$ ./jupyter_DeepPATH/start_jupyter.sh`
