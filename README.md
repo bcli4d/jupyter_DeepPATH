@@ -6,7 +6,7 @@ There are currently several notebooks:
 
 * _DeepPATH; Normal, LUAD, LUSC classification; transfer learning.ipynb_ uses transfer learning with TCGA_LUAD and TCGA_LUSC "frozen tissue" slides to classify for normal, LUAD, and LUSC.
 
-* _DeepPATH; Mutation classification; fully trained; non-silent mutations.ipynb_ is intended to TCGA_LUAD frozen tissue images for 0 or more of 10 possible mutations. It is currently a work in progress.
+* _DeepPATH; Mutation classification; fully trained; non-silent mutations.ipynb_ is intended to classify mutations ofTCGA_LUAD frozen tissue images. It is currently a work in progress.
 
 Additional notebooks can be ignored at this time. The notebooks are supported by a few scripts to aid running DeepPATH in jupyter.
 
