@@ -14,7 +14,7 @@ Additional notebooks can be ignored at this time. The notebooks are supported by
 
 The pipeline is divided roughly into three phases: tiling, sorting, training and evaluation, and there is a parameterization cell for each phases. In addition to controlling computation, (some of) the parameters of each phase are used to define a directory name in which compution data is stored, and the various directories form a hierarchy. 
 
-The first cell in each phase, if executed, will restore results of a previous computation of that phase form GCS, if those results were previously saved to GCS. The last cell of each phase can optionally be executed for that purpose. Any such saved results are maintained in a similar hierarchy in the designated GCS bucket.
+The first cell in each phase, if executed, will restore, from GCS results of a previous computation of that phase, if those results were previously saved to GCS. The last cell of each phase be executed for that purpose. Any such saved results are maintained in a similar directory hierarchy in the designated GCS bucket.
 
 ## Installation and execution
 
