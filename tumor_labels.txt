@@ -1,0 +1,3 @@
+Solid_Tissue_Normal
+TCGA-LUAD
+TCGA-LUSC

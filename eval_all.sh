@@ -76,7 +76,7 @@ while true; do
 
             # Test
             python $NC_IMAGENET_EVAL --checkpoint_dir=$CUR_CHECKPOINT --eval_dir=$OUTPUT_DIR --data_dir=$DATA_DIR \
-               --batch_size 80  --run_once --ImageSet_basename='valid-' --ClassNumber $NbClasses --mode=$MODE  \
+               --batch_size 30  --run_once --ImageSet_basename='valid_' --ClassNumber $NbClasses --mode=$MODE  \
                --TVmode='test' > $LOG_DIR/nc_imagenet_eval.valid.out.log 2> $LOG_DIR/nc_imagenet_eval.valid.err.log
             # wait
 

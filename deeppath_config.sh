@@ -2,6 +2,11 @@ sudo apt-get install -y git virtualenv
 virtualenv $HOME/dp
 source $HOME/dp/bin/activate
 sudo apt-get install -y libopenslide0
+
+#Get the DeepPATH code if not already installed
+if [ ! -d $HOME/DeepPATH]; then
+      git -C $HOME clone -b whc1 https://github.com/bcli4d/DeepPATH.git 
+fi
 pip install jupyter
 pip install jupyter_tensorboard
 pip install jupyterlab
