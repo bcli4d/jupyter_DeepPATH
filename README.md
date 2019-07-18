@@ -8,7 +8,9 @@ See the notebook intro for more details
 
 ## Installation and execution
 
-Because of the computational requirements, this notebook needs to be run on a (Google) VM with one or more GPUs. We recommend running on a VM which is configured with one of the Google "Deep Learning" images such as `Deep Learning Image: TensorFlow 1.14.0 m314` (or similar), and which come with CUDA and tensorflow pre-installed. After cloning this repo to the VM, execute deeppath_config.sh to configure the enviroment, and then start the jupyter server:
+Because of the computational requirements, this notebook needs to be run on a (Google) VM with one or more GPUs. We recommend running on a VM which is configured with one of the Google "Deep Learning" images such as `Deep Learning Image: TensorFlow 1.14.0 m314` (or similar), and which come with CUDA and tensorflow pre-installed. The VM needs a substantial disk, perhaps as much as 500GB. In addition, some steps in the pipeline seem to require significant physical memory. Testing, in particular, seems to need about 50GB-60GB of physical memory. 
+
+After cloning this repo to the VM, execute deeppath_config.sh to configure the enviroment, and then start the jupyter server:
 
  `$ git clone https://github.com/bcli4d/jupyter_DeepPATH.git`
 
