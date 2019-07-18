@@ -29,6 +29,7 @@ export LOG_DIR=$7
 export MODE=$8
 declare -i count=$9
 export NbClasses=${10}
+export IMAGESET_BASENAME=${11}
 #module load python/gpu/3.6.5
 
 # create temporary directory for checkpoints
@@ -76,7 +77,7 @@ while true; do
 
             # Test
             python $NC_IMAGENET_EVAL --checkpoint_dir=$CUR_CHECKPOINT --eval_dir=$OUTPUT_DIR --data_dir=$DATA_DIR \
-               --batch_size 30  --run_once --ImageSet_basename='valid_' --ClassNumber $NbClasses --mode=$MODE  \
+               --batch_size 30  --run_once --ImageSet_basename=$IMAGESET_BASENAME --ClassNumber $NbClasses --mode=$MODE  \
                --TVmode='test' > $LOG_DIR/nc_imagenet_eval.valid.out.log 2> $LOG_DIR/nc_imagenet_eval.valid.err.log
             # wait
 
