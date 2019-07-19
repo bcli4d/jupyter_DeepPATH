@@ -19,3 +19,6 @@ pip install scipy
 pip install tensorflow-gpu
 pip install matplotlib
 pip install sklearn
+
+pip install jupyter_contrib_nbextensions
+jupyter contrib nbextension install
