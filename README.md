@@ -8,9 +8,9 @@ See the notebook intro for more details
 
 ## Installation and execution
 
-Because of the computational requirements, this notebook needs to be run on a (Google) VM with one or more GPUs. We recommend running on a VM which is configured with one of the Google "Deep Learning" images such as `Deep Learning Image: TensorFlow 1.14.0 m314` (or similar), and which come with CUDA and tensorflow pre-installed. The VM needs a substantial disk, perhaps as much as 500GB. In addition, some steps in the pipeline seem to require significant physical memory. Testing, in particular, seems to need about 50GB-60GB of physical memory. 
+Because of the computational requirements, this notebook needs to be run on a (Google) VM with one or more GPUs. To simplify configuration, consider running on a VM which is configured with one of the Google "Deep Learning" images such as `Deep Learning Image: TensorFlow 1.14.0 m314` (or similar), and which come with CUDA and tensorflow pre-installed. The VM needs a substantial disk, perhaps as much as 500GB. In addition, some steps in the pipeline seem to require significant physical memory. Testing a checkpoint, in particular, seems to need about 50GB-60GB of physical memory. 
 
-After cloning this repo to the VM, execute deeppath_config.sh to configure the enviroment, and then start the jupyter server:
+After cloning this repo to your VM, execute deeppath_config.sh to configure the enviroment, and then start the jupyter server:
 
  `$ git clone https://github.com/bcli4d/jupyter_DeepPATH.git`
 
@@ -18,4 +18,6 @@ After cloning this repo to the VM, execute deeppath_config.sh to configure the e
 
  `$ ./jupyter_DeepPATH/start_jupyter.sh`
 
-Note that you will need to configure SSH port forwarding or use some other mechanism to be able to securely open the notebook in your browser.
+deeppath_config.sh clones a fork of the DeepPATH code repo that the authors of the paper have made available. The only change that we have made in this fork is to improve the performance of code for generating "heatmaps".
+
+Note that you will need to configure SSH port forwarding or use some other mechanism in order to be able to securely open the notebook in the browser on your local computer.
