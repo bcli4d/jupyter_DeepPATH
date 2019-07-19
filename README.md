@@ -2,29 +2,22 @@
 
 ## Overview
 
-This repo holds several notebooks that are intended to reproduce the results in report in this paper: https://www.nature.com/articles/s41591-018-0177-5. However, whereas the implementation reported in the paper obtains pathology images from TCIA, and mutation calls from the GDC, this implentation uses ISB-CGC metadata in BQ to determine pathology images and their corresponding tumor type and mutation calls. It then obtains pathology images from a ISB-CGC maintained GCS bucket.
+This repo holds a notebook that is intended to reproduce the results reported in this paper: https://www.nature.com/articles/s41591-018-0177-5. However, whereas the implementation reported in the paper obtains pathology images from TCIA, and mutation calls from the GDC, this implentation uses ISB-CGC metadata in Google BigQuery to determine pathology images and their corresponding tumor type and mutation calls. It then obtains pathology images from an ISB-CGC maintained GCS bucket.
 
-There are currently several notebooks:
-
-* _DeepPATH; Normal, LUAD, LUSC classification; transfer learning.ipynb_ uses transfer learning with TCGA_LUAD and TCGA_LUSC "frozen tissue" slides to classify for normal, LUAD, and LUSC.
-
-* _DeepPATH; Mutation classification; fully trained; non-silent mutations.ipynb_ is intended to classify mutations ofTCGA_LUAD frozen tissue images. It is currently a work in progress.
-
-Additional notebooks can be ignored at this time. The notebooks are supported by a few scripts to aid running DeepPATH in jupyter.
-
-The pipeline is divided roughly into three phases: tiling, sorting, training and evaluation, and there is a parameterization cell for each phases. In addition to controlling computation, (some of) the parameters of each phase are used to define a directory name in which compution data is stored, and the various directories form a hierarchy. 
-
-The first cell in each phase, if executed, will restore, from GCS results of a previous computation of that phase, if those results were previously saved to GCS. The last cell of each phase be executed for that purpose. Any such saved results are maintained in a similar directory hierarchy in the designated GCS bucket.
+See the notebook intro for more details
 
 ## Installation and execution
 
-Because of the computational requirements, this notebook needs to be run on a VM with one or more GPUs.
+Because of the computational requirements, this notebook needs to be run on a (Google) VM with one or more GPUs. To simplify configuration, consider running on a VM which is configured with one of the Google "Deep Learning" images such as `Deep Learning Image: TensorFlow 1.14.0 m314` (or similar), and which come with CUDA and tensorflow pre-installed. The VM needs a substantial disk, perhaps as much as 500GB. In addition, some steps in the pipeline seem to require significant physical memory. Testing a checkpoint, in particular, seems to need about 50GB-60GB of physical memory. 
 
-Clone this repo to a VM which is configured with Cuda, such as the `c2-deeplearning-tf-1-13-cu100-20190314` GCP image,
-then execute deeppath_config.sh, and start jupyter:
+After cloning this repo to your VM, execute deeppath_config.sh to configure the enviroment, and then start the jupyter server:
 
  `$ git clone https://github.com/bcli4d/jupyter_DeepPATH.git`
 
  `$ ./jupyter_DeepPATH/deeppath_config.sh`
 
  `$ ./jupyter_DeepPATH/start_jupyter.sh`
+
+deeppath_config.sh clones a fork of the DeepPATH code repo that the authors of the paper have made available. The only change that we have made in this fork is to improve the performance of code for generating "heatmaps".
+
+Note that you will need to configure SSH port forwarding or use some other mechanism in order to be able to securely open the notebook in the browser on your local computer.
